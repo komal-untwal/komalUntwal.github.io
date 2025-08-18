@@ -521,6 +521,11 @@
             transform: translateX(10px);
         }
 
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .contact-icon {
             width: 50px;
             height: 50px;
@@ -532,6 +537,7 @@
             color: white;
             margin-right: 1rem;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .contact-form {
@@ -694,9 +700,10 @@
                     <div class="profile-pic">KU</div>
                 </div>
                 <div class="about-text">
-                    <p>I'm a results-driven Software Developer with 5+ years of experience specializing in real-time data processing, scalable system design, and financial technology. Currently working at Barclays Investment Bank, I develop high-performance trading systems that handle millions of transactions daily.</p>
-                    <p>My passion lies in building robust, low-latency applications and exploring the intersection of technology and finance. I'm particularly interested in machine learning applications in trading systems and quantitative development.</p>
-                    <p>When I'm not coding, I enjoy contributing to research projects, participating in hackathons (recently placed 3rd in Barclays GenAI Hackathon!), and staying updated with the latest trends in AI and financial markets.</p>
+                    <p>I'm a Computer Scientist with 5+ years of working experience, currently serving as a Software Developer in the credit e-trading domain at Barclays Investment Bank. I specialize in developing high-performance, low-latency trading systems and scalable microservices architecture.</p>
+                    <p>I consider myself a data enthusiast, constantly honing my data skills through participation in research initiatives and study groups. My expertise spans across Java, Python, machine learning, and distributed systems, with a particular focus on financial technology and quantitative development.</p>
+                    <p>I hold a Master's in Computer Science from NJIT (GPA: 3.89) and have published research on COVID-19 health communication. Recently, my team TradeSmith secured 3rd place at the Barclays GenAI Hackathon, showcasing our innovation in AI-driven trading solutions.</p>
+                    <p>Based in the New York City Metropolitan Area, I'm passionate about building systems that make a real impact in financial markets and exploring the cutting-edge intersection of AI and finance.</p>
                 </div>
             </div>
             <div class="stats fade-in">
@@ -728,16 +735,27 @@
                     <div class="timeline-content">
                         <div class="timeline-date">Oct 2022 - Present</div>
                         <div class="timeline-title">Software Developer</div>
-                        <div class="timeline-company">Barclays Corporate & Investment Bank</div>
-                        <p>Developing high-performance, multi-threaded, low-latency JAVA applications for RFQ processing and trading infrastructure. Optimizing market data streaming, risk-aware pricing models, and FIX protocol connectivity with major exchanges like Bloomberg, MarketAxess, and Tradeweb.</p>
+                        <div class="timeline-company">Barclays Corporate & Investment Bank, New York, NY</div>
+                        <p><strong>E-Trading Credit Connectivity [Pre-Trade Markets]</strong></p>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Developed and maintained high-performance, multi-threaded, low-latency JAVA applications for RFQ processing and trading infrastructure</li>
+                            <li>Optimized market data streaming, risk-aware pricing models, and FIX protocol connectivity with major exchanges like Bloomberg, MarketAxess, SIX Swiss Exchange, & Tradeweb</li>
+                            <li>Collaborated with traders and quant teams to design systems supporting manual and algorithmic trading strategies</li>
+                            <li>Enhanced DevOps pipeline for CI/CD using TeamCity, achieving 5x improvement in deployment speed</li>
+                            <li>Designed automation testing frameworks, reducing manual QA efforts by 40%</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Jun 2022 - Aug 2022</div>
                         <div class="timeline-title">Software Engineer Intern</div>
-                        <div class="timeline-company">Octane</div>
-                        <p>Developed Python-based API using Django REST Framework with fuzzy matching logic for enhanced database search functionality. Created independent microservices and gained experience with PostgreSQL, Docker, Jenkins, and microservice architecture.</p>
+                        <div class="timeline-company">Octane, New York, NY</div>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Developed Python-based API using Django REST Framework with fuzzy matching logic for enhanced database search functionality</li>
+                            <li>Created independent microservice to query database based on search filters</li>
+                            <li>Gained proficiency in PostgreSQL, Docker, Jenkins, microservice architecture, and JIRA for project management</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -745,15 +763,52 @@
                         <div class="timeline-date">Nov 2021 - May 2022</div>
                         <div class="timeline-title">Graduate Research Assistant</div>
                         <div class="timeline-company">New Jersey Institute of Technology</div>
-                        <p>Conducted quantitative research on COVID-19 misinformation using Twitter API. Developed machine learning models and data mining approaches, contributing to published research in health communication during the pandemic.</p>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Developed substantial quantitative research skills through multiple research projects involving ML algorithms and data mining</li>
+                            <li>Scraped social media disinformation using Twitter API to assess COVID-19 misinformation impact on infection prevalence</li>
+                            <li>Prepared and structured datasets including documenting, labeling, and cleansing processes</li>
+                            <li>Created concise, instructive graphs and figures from summarized data sources</li>
+                            <li>Contributed to strategic planning, deadlines, proposal reports, and research literature study</li>
+                            <li>Developed automation software for data collection, maintenance, and visualization across university applications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sep 2021 - Nov 2021</div>
+                        <div class="timeline-title">Academic Operations Assistant</div>
+                        <div class="timeline-company">New Jersey Institute of Technology</div>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Assisted with academic operations related to workflow automation and data visualization</li>
+                            <li>Created automated email generation system, increasing productivity of manual operations</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">Jun 2018 - Nov 2020</div>
-                        <div class="timeline-title">Software Quality Assurance Engineer</div>
-                        <div class="timeline-company">Atos Syntel</div>
-                        <p>Developed test automation frameworks using Selenium, UFT, and TestComplete. Eliminated 80% of manual checks by creating automated maintenance scripts. Worked with Agile and Scrum methodologies to meet demanding project timelines.</p>
+                        <div class="timeline-title">Associate Consultant (Quality Assurance Engineer)</div>
+                        <div class="timeline-company">Atos Syntel, Pune, India</div>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Responsible for preparing test plans, prioritizing testing activities, and test case execution</li>
+                            <li>Performed regression testing and maintained automated test suites for web-based & desktop applications</li>
+                            <li>Gained hands-on experience with testing tools: Selenium, UFT & TestComplete</li>
+                            <li>Used frameworks: TestNG, Maven with Java and Python</li>
+                            <li>Eliminated 80% of manual checks by developing automated script suite for data entry application maintenance</li>
+                            <li>Adopted Agile and Scrum methodologies to accomplish project milestones</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 2017 - Jan 2018</div>
+                        <div class="timeline-title">Java Application Developer (Internship)</div>
+                        <div class="timeline-company">Creazione Software, Pune, Maharashtra, India</div>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li>Extensively trained in core JAVA concepts & advanced topics: JSP, Servlet, JDBC, Spring framework</li>
+                            <li>Developed virtual gym management system using Maven, Java, HTML, CSS, JavaScript, jQuery, RESTful APIs</li>
+                            <li>Handled software analysis, programming, testing, debugging, and requirements conversion to specifications</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -840,7 +895,8 @@
             <div class="projects-grid fade-in">
                 <div class="project-card">
                     <h3 class="project-title">Agent Checklist (Cornell Tech)</h3>
-                    <p class="project-description">Developed an AI-powered solution to reduce call center agent lookup time by 82%. Built intelligent checklist system to streamline customer data access and improve operational efficiency.</p>
+                    <p class="project-description"><strong>Aug 2022 - Present</strong><br>
+                    Problem: Call center agents spend 82% of their time looking at customer data. Developed an AI-powered checklist solution to streamline agent workflows and reduce lookup time, significantly improving operational efficiency in customer service operations.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Machine Learning</span>
                         <span class="tech-tag">Python</span>
@@ -849,35 +905,62 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3 class="project-title">Trading Systems Enhancement</h3>
-                    <p class="project-description">Built low-latency trading infrastructure with FIX protocol connectivity to major exchanges. Optimized market data streaming and implemented risk-aware pricing models for credit e-trading.</p>
+                    <h3 class="project-title">Tesla Stock Price Analysis Dashboard</h3>
+                    <p class="project-description"><strong>Mar 2022</strong><br>
+                    Created comprehensive dashboard to track daily live stock price changes, average monthly stock prices, daily closing numbers, and volume of stock traded. Built interactive visualizations to study Tesla's market performance and trading patterns.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">FIX Protocol</span>
-                        <span class="tech-tag">Real-time Systems</span>
-                        <span class="tech-tag">Financial Markets</span>
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Google Sheets</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">Financial Analysis</span>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3 class="project-title">COVID-19 Misinformation Analysis</h3>
-                    <p class="project-description">Published research analyzing health communication during the pandemic. Used Twitter API, NLP, and machine learning to study misinformation impact on COVID-19 prevalence.</p>
+                    <h3 class="project-title">Blog App with Flask</h3>
+                    <p class="project-description">Built a full-featured web application using Python Flask framework with modern web technologies. Implemented containerization with Docker and deployed using CI/CD configuration with GitHub Actions and Heroku deployment.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">Heroku</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Kleinberg's HITS & PageRank Algorithms</h3>
+                    <p class="project-description">Implemented advanced link analysis algorithms used by search engines for ranking web pages against user queries. Built efficient Java implementations of both HITS (Hyperlink-Induced Topic Search) and Google's PageRank algorithms.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Algorithms</span>
+                        <span class="tech-tag">Graph Theory</span>
+                        <span class="tech-tag">Web Search</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Sentiment Analysis Using NLP</h3>
+                    <p class="project-description">Developed a real-time sentiment analysis model specifically for financial market data. Applied Natural Language Processing and machine learning techniques to analyze market sentiment and identify risk signals for trading decisions.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Financial Data</span>
+                        <span class="tech-tag">Real-time Processing</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">COVID-19 Misinformation Impact Study</h3>
+                    <p class="project-description"><strong>Published Research</strong><br>
+                    Built Python scripts using Twitter API to extract and analyze data for studying misinformation's impact on COVID-19 prevalence. Visualized insights using Excel and Tableau. Research published in INQUIRY: The Journal of Health Care Organization.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Twitter API</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Data Mining</span>
+                        <span class="tech-tag">Excel</span>
+                        <span class="tech-tag">Tableau</span>
                         <span class="tech-tag">Research</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <h3 class="project-title">Tesla Stock Analysis Dashboard</h3>
-                    <p class="project-description">Created comprehensive dashboard for tracking Tesla stock performance using Google Sheets and Tableau. Analyzed daily price changes, monthly averages, and trading volumes with interactive visualizations.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">Data Visualization</span>
-                        <span class="tech-tag">Financial Analysis</span>
-                        <span class="tech-tag">Google Sheets</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3 class="project-title">Blog Application with Flask</h
