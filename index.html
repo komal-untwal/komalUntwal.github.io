@@ -1,966 +1,543 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komal Untwal - Software Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: #667eea;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero .description {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* About Section */
-        .about {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .profile-pic {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            color: white;
-            margin: 0 auto;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Experience Section */
-        .experience {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-        }
-
-        .experience-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            width: 50%;
-            padding: 0 2rem;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            text-align: left;
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.05);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
-            border: 4px solid #667eea;
-        }
-
-        .timeline-item:nth-child(odd)::before {
-            right: -12px;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            left: -12px;
-        }
-
-        .timeline-date {
-            font-weight: bold;
-            color: #f093fb;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-company {
-            font-weight: 600;
-            opacity: 0.9;
-            margin-bottom: 1rem;
-        }
-
-        /* Skills Section */
-        .skills {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-10px);
-        }
-
-        .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.1);
-        }
-
-        /* Projects Section */
-        .projects {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .project-description {
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-info {
-            font-size: 1.1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-        }
-
-        .contact-item a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-right: 1rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            font-family: inherit;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .social-links {
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            margin: 0 0.5rem;
-            line-height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2) rotate(360deg);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero .subtitle { font-size: 1.2rem; }
-            .section-title { font-size: 2rem; }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                text-align: left !important;
-                padding-left: 3rem;
-            }
-            
-            .timeline-item::before {
-                left: 10px !important;
-            }
-            
-            .experience-timeline::before {
-                left: 20px;
-            }
-            
-            nav .container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 1rem;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Komal Untwal — Software Developer (FinTech, Low Latency, AI)</title>
+  <meta name="description" content="Portfolio of Komal Untwal — Software Developer in credit e‑trading at Barclays. Low‑latency Java, Python, FIX connectivity, RFQ systems, ML/AI projects. NJIT MS CS (GPA 3.89)." />
+  <meta name="keywords" content="Komal Untwal, Software Developer, Barclays, low latency, Java, Python, FIX, RFQ, fintech, AI, ML, NJIT" />
+  <meta property="og:title" content="Komal Untwal — Software Developer" />
+  <meta property="og:description" content="Low‑latency trading systems, RFQ connectivity, ML/AI projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og.png" />
+  <meta name="theme-color" content="#0e0f13" />
+  <style>
+    /* =====================
+       Base + Theme Tokens
+       ===================== */
+    :root {
+      --bg: #0e0f13;
+      --card: #14161d;
+      --card-2: #171924;
+      --text: #e8eaf0;
+      --muted: #a9afc1;
+      --brand: #7c5cff;
+      --brand-2: #00e5ff;
+      --accent: linear-gradient(135deg, var(--brand), var(--brand-2));
+      --success: #33d69f;
+      --warning: #ffb020;
+      --danger: #ff5470;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --maxw: 1200px;
+      --nav-h: 72px;
+    }
+    [data-theme="light"]:root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --card-2: #f2f4f8;
+      --text: #121318;
+      --muted: #3b4356;
+      --shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.25), transparent 60%),
+                  radial-gradient(800px 400px at 110% 10%, rgba(0,229,255,.18), transparent 50%),
+                  var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    .btn { display: inline-flex; align-items: center; gap: .6rem; padding: .9rem 1.2rem; border-radius: 999px; font-weight: 600; transition: transform .2s ease, box-shadow .2s ease; }
+    .btn-primary { background: var(--accent); color: #061018; box-shadow: var(--shadow); }
+    .btn-outline { border: 1px solid rgba(168, 174, 191, .25); background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)); }
+    .btn:hover { transform: translateY(-2px); }
+
+    /* =====================
+       Navigation
+       ===================== */
+    nav {
+      position: sticky; top: 0; z-index: 50; height: var(--nav-h);
+      backdrop-filter: saturate(1.2) blur(10px);
+      background: color-mix(in oklab, var(--bg) 88%, transparent);
+      border-bottom: 1px solid rgba(168,174,191,.12);
+    }
+    nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display:flex; align-items:center; gap:.75rem; font-weight: 800; letter-spacing:.5px; }
+    .brand-badge { width:36px; height:36px; border-radius: 9px; background: var(--accent); display:grid; place-items:center; color:#061018; font-weight:900; box-shadow: var(--shadow); }
+    .nav-links { display:flex; gap: 1rem; align-items:center; }
+    .nav-links a { padding:.55rem .8rem; border-radius: 10px; color: var(--muted); transition: background .2s ease, color .2s ease; }
+    .nav-links a.active, .nav-links a:hover { color: var(--text); background: rgba(124,92,255,.14); }
+    .nav-cta { display:flex; align-items:center; gap:.6rem; }
+    .theme-toggle { width:42px; height:42px; border-radius: 50%; display:grid; place-items:center; border:1px solid rgba(168,174,191,.25); background:rgba(255,255,255,.03); cursor:pointer; }
+
+    /* =====================
+       Sections
+       ===================== */
+    section { scroll-margin-top: calc(var(--nav-h) + 12px); padding: 72px 0; }
+    .section-h { font-size: clamp(1.6rem, 2.2vw + .6rem, 2.6rem); line-height: 1.2; margin: 0 0 18px; }
+    .section-sub { color: var(--muted); margin: 0 0 32px; }
+
+    /* Hero */
+    .hero { padding: 72px 0 24px; }
+    .hero-grid { display:grid; grid-template-columns: 1.25fr .75fr; gap: 32px; align-items: center; }
+    .headline { font-size: clamp(2.2rem, 4.5vw + .4rem, 4rem); line-height: 1.1; margin: 0 0 12px; }
+    .headline .grad { background: var(--accent); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: var(--muted); font-size: 1.05rem; }
+    .hero-cta { display:flex; gap: .8rem; flex-wrap: wrap; margin-top: 18px; }
+    .hero-card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border:1px solid rgba(168,174,191,.16); padding: 18px; border-radius: var(--radius); display:flex; align-items:center; gap:14px; }
+    .badge { padding: .25rem .6rem; border-radius:999px; font-size:.8rem; background: rgba(124,92,255,.18); border:1px solid rgba(124,92,255,.35); }
+
+    /* Cards & grids */
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card { background: var(--card); border:1px solid rgba(168,174,191,.12); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+
+    /* About */
+    .about-me { display:grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: center; }
+    .pfp {
+      width: 220px; aspect-ratio:1; border-radius: 24px; background:
+        conic-gradient(from 90deg, rgba(124,92,255,.5), rgba(0,229,255,.4));
+      padding: 2px; box-shadow: var(--shadow);
+    }
+    .pfp > div { width: 100%; height: 100%; border-radius: 22px; background: url('avatar.jpg') center/cover, var(--card-2); display:grid; place-items:center; font-weight:800; color: #c9cdf0; }
+    .stats { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+    .stat { background: var(--card-2); border:1px solid rgba(168,174,191,.1); padding: 16px; border-radius: 14px; text-align:center; }
+    .stat b { display:block; font-size: 1.4rem; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline:before { content:''; position:absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, rgba(124,92,255,.4), rgba(0,229,255,.4)); }
+    .t-item { position: relative; padding-left: 56px; margin: 0 0 16px; }
+    .t-item:before { content:''; position:absolute; left: 10px; top: 8px; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(124,92,255,.15); }
+    .t-meta { display:flex; gap: 10px; flex-wrap: wrap; align-items:center; color: var(--muted); font-size:.95rem; }
+    .t-role { font-weight: 700; }
+
+    /* Skills */
+    .tags { display:flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: .45rem .7rem; border-radius: 999px; background: color-mix(in oklab, var(--card) 88%, black); border: 1px solid rgba(168,174,191,.18); font-size:.92rem; }
+
+    /* Projects */
+    .project { display:flex; flex-direction:column; gap:10px; }
+    .tech { font-size: .9rem; color: var(--muted); }
+
+    /* Publications & Achievements */
+    .list { display:grid; gap: 12px; }
+    .list-item { display:flex; gap: 12px; align-items:flex-start; }
+    .list-dot { width: 10px; height: 10px; margin-top: .55rem; border-radius: 50%; background: var(--accent); }
+
+    /* Contact */
+    .contact-pane { display:grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .contact-card { display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+    .contact-actions { display:flex; gap: 10px; }
+
+    /* Footer */
+    footer { padding: 38px 0 48px; color: var(--muted); border-top: 1px solid rgba(168,174,191,.12); margin-top: 40px; }
+
+    /* Fade-in animation with no‑JS fallback */
+    .fade-in { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .visible { opacity: 1 !important; transform: none !important; }
+    .no-js .fade-in { opacity: 1; transform: none; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2, .about-me, .contact-pane, .hero-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .nav-links.open { display:flex; position: absolute; top: var(--nav-h); left: 0; right: 0; padding: 10px; background: color-mix(in oklab, var(--bg) 92%, transparent); border-bottom: 1px solid rgba(168,174,191,.12); }
+      .burger { display:flex !important; }
+    }
+    .burger { display:none; width:42px; height:42px; border-radius: 10px; border:1px solid rgba(168,174,191,.25); align-items:center; justify-content:center; cursor:pointer; }
+  </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
-    
-    <nav id="navbar">
-        <div class="container">
-            <div class="logo">KU</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+  <!-- Nav -->
+  <nav aria-label="Primary">
+    <div class="container wrap">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">KU</div>
+        <span>Komal Untwal</span>
+      </div>
+      <div class="nav-links" id="navLinks" role="navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☼</button>
+        <a class="btn btn-outline" href="KU_Resume_SDE.pdf" target="_blank" rel="noopener">Résumé</a>
+        <button class="burger" id="burger" aria-label="Open menu">≡</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home" class="hero container">
+    <div class="hero-grid">
+      <div>
+        <p class="badge">Software Developer · Credit E‑Trading · NYC Metro</p>
+        <h1 class="headline">I build <span class="grad">low‑latency trading systems</span> & data‑driven products.</h1>
+        <p class="hero-copy">Software Developer at Barclays Corporate & Investment Bank (Pre‑Trade Markets). I design RFQ connectivity, FIX integrations, and resilient services in Java/Python. Keen on ML/AI & quant‑leaning dev. NJIT MS CS (GPA 3.89).</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-outline" href="#projects">See projects</a>
+        </div>
+        <div class="hero-card" style="margin-top:16px">
+          <span>✨ Latest</span>
+          <span class="badge">GenAI Hackathon — 3rd place</span>
+          <a class="btn btn-outline" href="#achievements">Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="pfp"><div>KU</div></div>
+          <div>
+            <div style="font-weight:700;">Komal Untwal</div>
+            <div style="color:var(--muted);">FinTech • Low Latency • AI/ML</div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>5+ yrs</b><span>Experience</span></div>
+          <div class="stat"><b>3.89</b><span>MS GPA</span></div>
+          <div class="stat"><b>40%</b><span>QA Effort ↓</span></div>
+          <div class="stat"><b>5×</b><span>Deploy Speed ↑</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="container">
+    <h2 class="section-h">About</h2>
+    <p class="section-sub">NYC‑area developer focused on performance, reliability, and thoughtful UX for trading & data platforms.</p>
+    <div class="about-me card fade-in">
+      <div>
+        <h3 style="margin-top:0">Profile</h3>
+        <p>Currently in Barclays Credit E‑Trading (Pre‑Trade Markets). I work on multi‑threaded, low‑latency Java services for RFQ processing, market‑data streams, and FIX connectivity (e.g., Bloomberg, MarketAxess, SIX, Tradeweb). I collaborate with traders & quants, and I care about clean design, observability, and automation.</p>
+        <p>Previously, I built Python/Django microservices as a Software Engineer Intern at Octane. Before my MS, I worked in QA engineering at Atos Syntel, where I automated large portions of regression suites.</p>
+        <p>I'm also a data enthusiast—published research on COVID‑19 information flows, and I keep an eye on ML/AI applications in finance.</p>
+      </div>
+      <div>
+        <div class="grid-2">
+          <div class="card" style="background:var(--card-2)">
+            <strong>What I focus on</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Low‑latency design (Java, concurrency, networking)</li>
+              <li>FIX/RFQ connectivity & reliability</li>
+              <li>Automation, CI/CD, testing frameworks</li>
+              <li>Data‑driven insights & ML‑curiosity</li>
             </ul>
+          </div>
+          <div class="card" style="background:var(--card-2)">
+            <strong>Values</strong>
+            <ul style="margin:10px 0 0 18px;">
+              <li>Clarity over cleverness</li>
+              <li>Measurement over intuition</li>
+              <li>Own the outcome</li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Komal Untwal</h1>
-            <p class="subtitle">Software Developer & Data Enthusiast</p>
-            <p class="description">Building high-performance trading systems and scalable solutions at Barclays Investment Bank. Passionate about fintech, AI, and creating impactful software that drives business success.</p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Let's Connect</a>
-                <a href="#experience" class="btn btn-secondary">View My Work</a>
-            </div>
+  <!-- Experience -->
+  <section id="experience" class="container">
+    <h2 class="section-h">Experience</h2>
+    <p class="section-sub">Selected roles & impact.</p>
+    <div class="timeline">
+      <div class="t-item card fade-in">
+        <div class="t-meta"><span>Oct 2022 – Present · New York, NY</span> · <span class="badge">Full‑time</span></div>
+        <div class="t-role">Software Developer — Barclays Corporate & Investment Bank</div>
+        <ul style="margin:10px 0 0 18px;">
+          <li>Develop & operate high‑performance, multi‑threaded Java services for RFQ processing & trading infra.</li>
+          <li>Optimize market‑data streaming, risk‑aware pricing, and FIX connectivity (Bloomberg, MarketAxess, SIX, Tradeweb).</li>
+          <li>Partner with traders & quants on systems supporting manual + algorithmic strategies.</li>
+          <li>CI/CD with TeamCity; achieved ~5× faster deployments. Built automation frameworks; cut manual QA ~40%.</li>
+        </ul>
+      </div>
+      <div class="t-item card fade-in">
+        <div class="t-meta"><span>Jun 2022 – Aug 2022 · New York, NY</span> · <span class="badge">Internship</span></div>
+        <div class="t-role">Software Engineer Intern — Octane</div>
+        <ul style="margin:10px 0 0 18px;">
+          <li>Built Python/Django REST API with fuzzy matching to retrieve items without exact name matches.</li>
+          <li>Delivered a microservice querying PostgreSQL via flexible filters; exposure to Docker/Jenkins & microservices.</li>
+        </ul>
+      </div>
+      <div class="t-item card fade-in">
+        <div class="t-meta"><span>Nov 2021 – May 2022 · Newark, NJ</span></div>
+        <div class="t-role">Graduate Research Assistant — New Jersey Institute of Technology</div>
+        <ul style="margin:10px 0 0 18px;">
+          <li>Quantitative research using ML & data mining; built data pipelines for social‑media misinformation studies.</li>
+          <li>Visualized insights; contributed to literature reviews & proposal writing.</li>
+        </ul>
+      </div>
+      <div class="t-item card fade-in">
+        <div class="t-meta"><span>Sep 2021 – Nov 2021 · New Jersey, USA</span></div>
+        <div class="t-role">Academic Operations Assistant — NJIT</div>
+        <ul style="margin:10px 0 0 18px;">
+          <li>Automated data collection/processing and email workflows to improve department productivity.</li>
+        </ul>
+      </div>
+      <div class="t-item card fade-in">
+        <div class="t-meta"><span>Jun 2018 – Nov 2020 · Pune, India</span></div>
+        <div class="t-role">Associate Consultant (QA Engineer) — Atos Syntel</div>
+        <ul style="margin:10px 0 0 18px;">
+          <li>Built automation suites (Selenium, UFT, TestNG, Maven); eliminated ~80% manual checks on key flows.</li>
+          <li>Agile/Scrum; partnered with devs for fast triage & resolution.</li>
+        </ul>
+      </div>
+      <div class="t-item card fade-in">
+        <div class="t-meta"><span>Aug 2017 – Jan 2018 · Pune, India</span></div>
+        <div class="t-role">Java Application Developer (Intern) — Creazione Software</div>
+        <ul style="margin:10px 0 0 18px;">
+          <li>Hands‑on core/advanced Java (JSP, Servlets, JDBC, Spring); built a virtual gym management system.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container">
+    <h2 class="section-h">Skills</h2>
+    <p class="section-sub">Tools I can be productive with on day one.</p>
+    <div class="grid-3">
+      <div class="card fade-in">
+        <h3>Languages</h3>
+        <div class="tags">
+          <span class="tag">Java</span><span class="tag">Python</span><span class="tag">C++</span><span class="tag">R</span><span class="tag">SQL</span><span class="tag">JavaScript</span>
         </div>
-    </section>
-
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <div class="about-content fade-in">
-                <div class="about-image">
-                    <div class="profile-pic">KU</div>
-                </div>
-                <div class="about-text">
-                    <p>I'm a Computer Scientist with 5+ years of working experience, currently serving as a Software Developer in the credit e-trading domain at Barclays Investment Bank. I specialize in developing high-performance, low-latency trading systems and scalable microservices architecture.</p>
-                    <p>I consider myself a data enthusiast, constantly honing my data skills through participation in research initiatives and study groups. My expertise spans across Java, Python, machine learning, and distributed systems, with a particular focus on financial technology and quantitative development.</p>
-                    <p>I hold a Master's in Computer Science from NJIT (GPA: 3.89) and have published research on COVID-19 health communication. Recently, my team TradeSmith secured 3rd place at the Barclays GenAI Hackathon, showcasing our innovation in AI-driven trading solutions.</p>
-                    <p>Based in the New York City Metropolitan Area, I'm passionate about building systems that make a real impact in financial markets and exploring the cutting-edge intersection of AI and finance.</p>
-                </div>
-            </div>
-            <div class="stats fade-in">
-                <div class="stat-item">
-                    <div class="stat-number">5+</div>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3.89</div>
-                    <p>Master's GPA</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">40%</div>
-                    <p>QA Improvement</p>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5x</div>
-                    <p>Deployment Speed Up</p>
-                </div>
-            </div>
+      </div>
+      <div class="card fade-in">
+        <h3>Frameworks & Web</h3>
+        <div class="tags">
+          <span class="tag">Spring</span><span class="tag">Django</span><span class="tag">Flask</span><span class="tag">React</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Bootstrap</span>
         </div>
-    </section>
-
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title fade-in">Professional Experience</h2>
-            <div class="experience-timeline fade-in">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Oct 2022 - Present</div>
-                        <div class="timeline-title">Software Developer</div>
-                        <div class="timeline-company">Barclays Corporate & Investment Bank, New York, NY</div>
-                        <p><strong>E-Trading Credit Connectivity [Pre-Trade Markets]</strong></p>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>Developed and maintained high-performance, multi-threaded, low-latency JAVA applications for RFQ processing and trading infrastructure</li>
-                            <li>Optimized market data streaming, risk-aware pricing models, and FIX protocol connectivity with major exchanges like Bloomberg, MarketAxess, SIX Swiss Exchange, & Tradeweb</li>
-                            <li>Collaborated with traders and quant teams to design systems supporting manual and algorithmic trading strategies</li>
-                            <li>Enhanced DevOps pipeline for CI/CD using TeamCity, achieving 5x improvement in deployment speed</li>
-                            <li>Designed automation testing frameworks, reducing manual QA efforts by 40%</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Jun 2022 - Aug 2022</div>
-                        <div class="timeline-title">Software Engineer Intern</div>
-                        <div class="timeline-company">Octane, New York, NY</div>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>Developed Python-based API using Django REST Framework with fuzzy matching logic for enhanced database search functionality</li>
-                            <li>Created independent microservice to query database based on search filters</li>
-                            <li>Gained proficiency in PostgreSQL, Docker, Jenkins, microservice architecture, and JIRA for project management</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Nov 2021 - May 2022</div>
-                        <div class="timeline-title">Graduate Research Assistant</div>
-                        <div class="timeline-company">New Jersey Institute of Technology</div>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>Developed substantial quantitative research skills through multiple research projects involving ML algorithms and data mining</li>
-                            <li>Scraped social media disinformation using Twitter API to assess COVID-19 misinformation impact on infection prevalence</li>
-                            <li>Prepared and structured datasets including documenting, labeling, and cleansing processes</li>
-                            <li>Created concise, instructive graphs and figures from summarized data sources</li>
-                            <li>Contributed to strategic planning, deadlines, proposal reports, and research literature study</li>
-                            <li>Developed automation software for data collection, maintenance, and visualization across university applications</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Sep 2021 - Nov 2021</div>
-                        <div class="timeline-title">Academic Operations Assistant</div>
-                        <div class="timeline-company">New Jersey Institute of Technology</div>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>Assisted with academic operations related to workflow automation and data visualization</li>
-                            <li>Created automated email generation system, increasing productivity of manual operations</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Jun 2018 - Nov 2020</div>
-                        <div class="timeline-title">Associate Consultant (Quality Assurance Engineer)</div>
-                        <div class="timeline-company">Atos Syntel, Pune, India</div>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>Responsible for preparing test plans, prioritizing testing activities, and test case execution</li>
-                            <li>Performed regression testing and maintained automated test suites for web-based & desktop applications</li>
-                            <li>Gained hands-on experience with testing tools: Selenium, UFT & TestComplete</li>
-                            <li>Used frameworks: TestNG, Maven with Java and Python</li>
-                            <li>Eliminated 80% of manual checks by developing automated script suite for data entry application maintenance</li>
-                            <li>Adopted Agile and Scrum methodologies to accomplish project milestones</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Aug 2017 - Jan 2018</div>
-                        <div class="timeline-title">Java Application Developer (Internship)</div>
-                        <div class="timeline-company">Creazione Software, Pune, Maharashtra, India</div>
-                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                            <li>Extensively trained in core JAVA concepts & advanced topics: JSP, Servlet, JDBC, Spring framework</li>
-                            <li>Developed virtual gym management system using Maven, Java, HTML, CSS, JavaScript, jQuery, RESTful APIs</li>
-                            <li>Handled software analysis, programming, testing, debugging, and requirements conversion to specifications</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="card fade-in">
+        <h3>Data, Infra, DevOps</h3>
+        <div class="tags">
+          <span class="tag">TimesTen</span><span class="tag">Oracle</span><span class="tag">KDB</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+          <span class="tag">Kafka</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">TeamCity</span><span class="tag">Git</span>
         </div>
-    </section>
-
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title fade-in">Technical Skills</h2>
-            <div class="skills-grid fade-in">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Spring Framework</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Bootstrap</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TimesTen</span>
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">KDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Kafka</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & Utilities</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Maven/Gradle</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">JIRA</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Trading & Finance</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FIX Protocol</span>
-                        <span class="skill-tag">Fixed Income Trading</span>
-                        <span class="skill-tag">Market Data Streaming</span>
-                        <span class="skill-tag">Risk Management</span>
-                        <span class="skill-tag">Algorithmic Trading</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Science & ML</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">NLTK</span>
-                        <span class="skill-tag">Tableau</span>
-                        <span class="skill-tag">Matplotlib</span>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="card fade-in">
+        <h3>ML / Data</h3>
+        <div class="tags">
+          <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">scikit‑learn</span><span class="tag">NLTK</span><span class="tag">Tableau</span>
+          <span class="tag">Matplotlib</span>
         </div>
-    </section>
+      </div>
+      <div class="card fade-in">
+        <h3>Testing</h3>
+        <div class="tags">
+          <span class="tag">Selenium</span><span class="tag">UFT</span><span class="tag">TestNG</span><span class="tag">JUnit</span>
+        </div>
+      </div>
+      <div class="card fade-in">
+        <h3>Domains</h3>
+        <div class="tags">
+          <span class="tag">Credit E‑Trading</span><span class="tag">Fixed Income</span><span class="tag">RFQ/FIX</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <div class="projects-grid fade-in">
-                <div class="project-card">
-                    <h3 class="project-title">Agent Checklist (Cornell Tech)</h3>
-                    <p class="project-description"><strong>Aug 2022 - Present</strong><br>
-                    Problem: Call center agents spend 82% of their time looking at customer data. Developed an AI-powered checklist solution to streamline agent workflows and reduce lookup time, significantly improving operational efficiency in customer service operations.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">AI</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3 class="project-title">Tesla Stock Price Analysis Dashboard</h3>
-                    <p class="project-description"><strong>Mar 2022</strong><br>
-                    Created comprehensive dashboard to track daily live stock price changes, average monthly stock prices, daily closing numbers, and volume of stock traded. Built interactive visualizations to study Tesla's market performance and trading patterns.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">Google Sheets</span>
-                        <span class="tech-tag">Data Visualization</span>
-                        <span class="tech-tag">Financial Analysis</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3 class="project-title">Blog App with Flask</h3>
-                    <p class="project-description">Built a full-featured web application using Python Flask framework with modern web technologies. Implemented containerization with Docker and deployed using CI/CD configuration with GitHub Actions and Heroku deployment.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">Bootstrap</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">GitHub Actions</span>
-                        <span class="tech-tag">Heroku</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3 class="project-title">Kleinberg's HITS & PageRank Algorithms</h3>
-                    <p class="project-description">Implemented advanced link analysis algorithms used by search engines for ranking web pages against user queries. Built efficient Java implementations of both HITS (Hyperlink-Induced Topic Search) and Google's PageRank algorithms.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Algorithms</span>
-                        <span class="tech-tag">Graph Theory</span>
-                        <span class="tech-tag">Web Search</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3 class="project-title">Sentiment Analysis Using NLP</h3>
-                    <p class="project-description">Developed a real-time sentiment analysis model specifically for financial market data. Applied Natural Language Processing and machine learning techniques to analyze market sentiment and identify risk signals for trading decisions.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Financial Data</span>
-                        <span class="tech-tag">Real-time Processing</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3 class="project-title">COVID-19 Misinformation Impact Study</h3>
-                    <p class="project-description"><strong>Published Research</strong><br>
-                    Built Python scripts using Twitter API to extract and analyze data for studying misinformation's impact on COVID-19 prevalence. Visualized insights using Excel and Tableau. Research published in INQUIRY: The Journal of Health Care Organization.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Twitter API</span>
-                        <span class="tech-tag">Data Mining</span>
-                        <span class="tech-tag">Excel</span>
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">Research</span>
-                    </div>
-                </div>
+  <!-- Projects -->
+  <section id="projects" class="container">
+    <h2 class="section-h">Projects</h2>
+    <p class="section-sub">A mix of professional, academic, and self‑driven work.</p>
+    <div class="grid-3">
+      <div class="card project fade-in">
+        <h3>RFQ Connectivity & Pricing Improvements</h3>
+        <p class="tech">Java · FIX · Market data · CI/CD</p>
+        <p>Low‑latency RFQ services, resilient connectivity with major venues, plus test automation and deploy speedups. Led changes that reduced manual QA and improved release cadence.</p>
+      </div>
+      <div class="card project fade-in">
+        <h3>Blog App on Flask</h3>
+        <p class="tech">Python · Flask · Docker · GitHub Actions · Heroku</p>
+        <p>Full‑stack app with CI/CD and containerization; learned deployment hygiene and environment setup.</p>
+      </div>
+      <div class="card project fade-in">
+        <h3>HITS & PageRank Implementations</h3>
+        <p class="tech">Java · Algorithms</p>
+        <p>Implemented link analysis algorithms to rank pages for queries; tuned convergence and evaluated ranking quality.</p>
+      </div>
+      <div class="card project fade-in">
+        <h3>Sentiment for Financial Streams</h3>
+        <p class="tech">Python · NLP · scikit‑learn</p>
+        <p>Real‑time sentiment model on market text; explored risk signals & correlations.</p>
+      </div>
+      <div class="card project fade-in">
+        <h3>Tesla Stock Dashboard</h3>
+        <p class="tech">Google Sheets · Tableau</p>
+        <p>Interactive dashboard with daily/weekly trends, volumes, and aggregates to practice visualization & data prep.</p>
+      </div>
+      <div class="card project fade-in" id="achievements">
+        <h3>GenAI Hackathon — TradeSmith</h3>
+        <p class="tech">Azure OpenAI · Power Apps · Automation</p>
+        <p>Team project that placed <strong>3rd</strong> in a Barclays GenAI hackathon panel; built an RFQ‑automation demo from chat context.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications / Certifications -->
+  <section id="publications" class="container">
+    <h2 class="section-h">Publications & Certifications</h2>
+    <div class="grid-2">
+      <div class="card list fade-in">
+        <div class="list-item">
+          <div class="list-dot"></div>
+          <div>
+            <b>Holiday Tweets: A Qualitative Analysis of How Major Health Orgs Addressed Culture During the COVID‑19 Pandemic</b>
+            <div class="tech">INQUIRY: The Journal of Health Care Organization, Provision, and Financing (2024)</div>
+          </div>
+        </div>
+      </div>
+      <div class="card list fade-in">
+        <div class="list-item">
+          <div class="list-dot"></div>
+          <div><b>Oracle Certified Associate</b> — Java SE 8 Programmer (1Z0‑808)</div>
+        </div>
+        <div class="list-item">
+          <div class="list-dot"></div>
+          <div><b>Google — Crash Course on Python</b></div>
+        </div>
+        <div class="list-item">
+          <div class="list-dot"></div>
+          <div><b>Cornell Tech</b> — Machine Learning Foundations (Break Through Tech AI)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="container">
+    <h2 class="section-h">Education</h2>
+    <div class="grid-2">
+      <div class="card fade-in">
+        <h3>New Jersey Institute of Technology — MS, Computer Science</h3>
+        <p class="tech">Jan 2021 – Aug 2022 · GPA 3.89</p>
+        <p>Coursework: DSA, Web Systems, Operating Systems, Java Programming, Internet & Higher‑Layer Protocols, Data Analytics, ML, Data Mining, DBMS.</p>
+      </div>
+      <div class="card fade-in">
+        <h3>Cornell Tech — Break Through Tech AI</h3>
+        <p class="tech">Certificate in Machine Learning Foundations</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
+    <h2 class="section-h">Contact</h2>
+    <p class="section-sub">Let’s discuss systems, speed, and smart automation. I’m open to the right opportunities in fintech/AI.</p>
+    <div class="contact-pane">
+      <div class="card contact-card fade-in">
+        <div>
+          <div style="font-weight:700;">Komal Untwal</div>
+          <div class="tech">Hoboken, NJ · United States</div>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:komal13796@gmail.com" aria-label="Email Komal">Email</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/komaluntwal" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-outline" href="https://github.com/komal-untwal" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="card fade-in">
+        <form onsubmit="event.preventDefault(); window.location='mailto:komal13796@gmail.com?subject='+encodeURIComponent(this.subject.value)+'&body='+encodeURIComponent(this.message.value);">
+          <label for="subject"><b>Subject</b></label>
+          <input id="subject" name="subject" required style="width:100%; margin:8px 0 12px; padding:12px; border-radius:10px; border:1px solid rgba(168,174,191,.25); background:var(--card-2); color:var(--text)" />
+          <label for="message"><b>Message</b></label>
+          <textarea id="message" name="message" rows="4" required style="width:100%; margin:8px 0 12px; padding:12px; border-radius:10px; border:1px solid rgba(168,174,191,.25); background:var(--card-2); color:var(--text)"></textarea>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <div>© <span id="yr"></span> Komal Untwal</div>
+      <div class="tech">Built with semantic HTML, accessible colors, and zero external JS/CSS.</div>
+    </div>
+  </footer>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Komal Untwal",
+    "jobTitle": "Software Developer",
+    "address": {"@type":"PostalAddress","addressLocality":"Hoboken","addressRegion":"NJ","addressCountry":"US"},
+    "alumniOf": "New Jersey Institute of Technology",
+    "url": "https://your-domain.example",
+    "sameAs": [
+      "https://www.linkedin.com/in/komaluntwal",
+      "https://github.com/komal-untwal"
+    ]
+  }
+  </script>
+
+  <!-- Fixes & enhancements: animations, active links, theme, mobile nav -->
+  <script>
+    // Remove no-js
+    document.documentElement.classList.remove('no-js');
+
+    // IntersectionObserver to reveal .fade-in
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    // Active nav link on scroll
+    const sections = [...document.querySelectorAll('section, header')].filter(s => s.id);
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const setActive = () => {
+      const y = window.scrollY + (window.innerHeight * 0.25);
+      let current = sections[0].id;
+      for (const s of sections) { if (y >= s.offsetTop) current = s.id; }
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    setActive();
+    window.addEventListener('scroll', setActive, { passive: true });
+
+    // Theme toggle
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    document.getElementById('themeToggle').onclick = () => {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    };
+
+    // Mobile burger
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('navLinks');
+    burger.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
